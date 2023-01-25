@@ -1,0 +1,17 @@
+[package]
+name = "criterion-bechmarking"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+criterion = {version = "0.3", features = ["html_reports"]}
+crossbeam = "0.8.2"
+crossbeam-channel = "0.5"
+num_cpus = "1.15.0"
+rayon = "1.6.1"
+
+[[bench]]
+name = "tpt_benchmark"
+harness = false
