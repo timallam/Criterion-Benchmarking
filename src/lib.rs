@@ -17,7 +17,7 @@ pub fn test_crossbeam_impl(data_segments: &[&str]) {
     let mut nsegments = 0;
 
     crossbeam::scope(|spanner|{
-        for (_, data_segment) in data_segments.iter().enumerate() {
+        for data_segment in data_segments.iter() {
             nsegments += 1;
 
             spanner.spawn(|_| {
@@ -44,7 +44,7 @@ pub fn test_par_iter_impl(data_segments: &[&str]) {
 pub fn test_buildin_thread_impl(data_segments: &[&str]) {
     let mut thread_pool = vec![];
 
-    for (_, data_segment) in data_segments.iter().enumerate() {
+    for data_segment in data_segments.iter() {
         let data_segment_str = data_segment.to_string();
 
         thread_pool.push(thread::spawn(move || -> u32 {
